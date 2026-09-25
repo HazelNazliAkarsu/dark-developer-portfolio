@@ -27,6 +27,12 @@
   });
 
   navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1000) closeMenu();
+  }, { passive: true });
   window.addEventListener('scroll', setHeaderState, { passive: true });
   setHeaderState();
 
